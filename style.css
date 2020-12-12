@@ -12,9 +12,11 @@ html {
     margin-top: 10px;
 }
 
-.row {
-    justify-content: flex-start;
+
+div.row {
+    text-align: left;
 }
+
 
 .input {
     float: left;
@@ -23,14 +25,6 @@ html {
 .output {
     float: left;
     margin-left: 20px;
-}
-
-.output-cell-types {
-    float: left;
-}
-
-.output-percents {
-    float: right;
 }
 
 .cellTotes {
@@ -43,9 +37,6 @@ html {
     margin-right: 20px;
 }
 
-td {
-    padding-right: 35px;
-}
 
 .resetPage {
     margin-left: 50px;
@@ -57,7 +48,6 @@ td {
 
 .BLAST {
     text-align: center;
-    margin-left: 20px;
 }
 
 .Blast button{
@@ -71,7 +61,7 @@ td {
 }
 .PROMYELOCYTE {
     text-align: center;
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 .Myelocyte button {
@@ -81,7 +71,7 @@ td {
 
 .MYELOCYTE {
     text-align: center;
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 .Metamyelocyte button {
@@ -90,7 +80,7 @@ td {
 }
 .METAMYELOCYTE {
     text-align: center;
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 .Neutrophil button {
@@ -109,7 +99,7 @@ td {
 
 .NRBC {
     text-align: center;
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 .Lymphocyte button {
@@ -119,7 +109,7 @@ td {
 
 .LYMPHOCYTE {
     text-align: center;
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 .Basophil button {
@@ -129,7 +119,6 @@ td {
 
 .BASOPHIL {
     text-align: center;
-    margin-left: 20px;
 }
 
 .Monocyte button {
@@ -139,7 +128,7 @@ td {
 
 .MONOCYTE {
     text-align: center;
-    margin-left: 80px;
+    margin-left: 15px;
 }
 
 .Eosinophil button {
@@ -149,7 +138,7 @@ td {
 
 .EOSINOPHIL {
     text-align: center;
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 .Plasmacell button {
@@ -159,7 +148,7 @@ td {
 
 .PLASMACELL {
     text-align: center;
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 table tr.separator { height: 20px; }

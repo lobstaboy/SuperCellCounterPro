@@ -18,6 +18,13 @@ myeloid = blast + promyelocyte + myelocyte + metamyelocyte + neutrophil + basoph
 total = blast + promyelocyte + myelocyte + metamyelocyte + neutrophil + nrbc + lymphocyte + basophil + monocyte + eosinophil + plasmacell;
 
 var numberToCount = document.getElementById("numCells").value;
+var numberToCount = document.getElementById("countType").value;
+
+function resetPage() {
+    if (confirm("Are you sure you want to reset the counter?")) {
+        window.location.reload();
+    }
+}
 
 function updateTable() {
     var numberToCount = document.getElementById("numCells").value;
@@ -305,7 +312,7 @@ function myeloDOWN() {
 
     myelocyte -=1
     total -= 1
-    document.getElementById('myelocte').innerHTML = myelocyte;
+    document.getElementById('myelocyte').innerHTML = myelocyte;
     document.getElementById('numCellCounted').innerHTML = total;
     updateTable();
 }
