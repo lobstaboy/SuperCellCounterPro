@@ -1,0 +1,252 @@
+<html>
+    <head>
+    <title>Super Cell Counter Pro</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">    
+    </head>
+
+    <body onkeypress="cellCountFunction(event)">
+        <h1>Super Cell Counter Pro 2000</h1>
+        <p>Version: 3.0 by Robbie Dietz MD, <a href=mailto:rldietzmd@gmail.com?subject="HTML link">rldietzmd@gmail.com</a></p>
+        <p><a href=https://s3-us-west-1.amazonaws.com/supercellcounterpro.com/keyboard.jpg="HTML link">Keyboard setup</a></p>
+        
+
+        <div class="input">
+            <div class="container input-section">
+                <div class="row">
+
+                    <div class="cellCountDropdown"># Cells to count
+                        
+                        <form>
+                            <select id="numCells">
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                                <option value="200" selected>200</option>
+                                <option value="500">500</option>
+                                <option value="1000">1000</option>
+                            </select>
+                        </form>
+                    </div>
+
+                    <div class="cellTotes">Number of cells counted:
+                        <p id="numCellCounted"></p>
+                    </div>
+
+                    <div class="resetPage">
+                        <button type="button" onClick="window.location.reload();" >Reset</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container counter-section">
+                
+                <div class="row">
+                    <div class="METAMYELOCYTE">
+                        <div>
+                            <b>Metamyelocytes</b><br>
+                        </div>
+
+                        <div class="container">
+                            <button type="button" onclick="metaDOWN()">-</button>
+                            <button type="button" onclick="metaUP()">+</button>
+                        </div>
+
+                        <div>
+                            <p id="metamyelocyte"></p>
+                        </div>
+                    </div>
+
+                    <div class="MYELOCYTE">
+                        <div>
+                            <b>Myelocytes</b><br>
+                        </div>
+
+                        <div class="container">
+                            <button type="button" onclick="myeloDOWN()">-</button>
+                            <button type="button" onclick="myeloUP()">+</button>
+                        </div>
+
+                        <div>
+                            <p id="myelocyte"></p>
+                        </div>
+                    </div>
+
+                    <div class="PROMYELOCYTE">
+                        <div>
+                            <b>Promyelocytes</b><br>
+                        </div>
+
+                        <div class="container">
+                            <button type="button" onclick="proDOWN()">-</button>
+                            <button type="button" onclick="proUP()">+</button>
+                        </div>
+
+                        <div>
+                            <p id="promyelocyte"></p>
+                        </div>
+                    </div>
+
+                    <div class="BLAST">
+                        <div>
+                            <b>Myeloblasts</b><br>
+                        </div>
+
+                        <div class="container">
+                            <button type="button" onclick="blastDOWN()">-</button>
+                            <button type="button" onclick="blastUP()">+</button>
+                        </div>
+
+                        <div>
+                            <p id="blast"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="NEUTROPHIL">
+                        <div>
+                            <b>Bands / Neutrophils</b><br>
+                        </div>
+
+                        <div class="container">
+                            <button type="button" onclick="neutDOWN()">-</button>
+                            <button type="button" onclick="neutUP()">+</button>
+                        </div>
+
+                        <div>
+                            <p id="neutrophil"></p>
+                        </div>
+                    </div>
+
+                    <div class="LYMPHOCYTE">
+                        <div>
+                            <b>Lymphocytes</b><br>
+                        </div>
+
+                        <div class="container">
+                            <button type="button" onclick="lymphDOWN()">-</button>
+                            <button type="button" onclick="lymphUP()">+</button>
+                        </div>
+
+                        <div>
+                            <p id="lymphocyte"></p>
+                        </div>
+                    </div>
+
+                    <div class="MONOCYTE">
+                        <div>
+                            <b>Monocytes</b><br>
+                        </div>
+    
+                        <div class="container">
+                            <button type="button" onclick="monoDOWN()">-</button>
+                            <button type="button" onclick="monoUP()">+</button>
+                        </div>
+    
+                        <div>
+                            <p id="monocyte"></p>
+                        </div>
+                    </div>
+
+                </div>
+                    <div class="row">
+                        
+        
+                        <div class="EOSINOPHIL">
+                            <div>
+                                <b>Eosinophils</b><br>
+                            </div>
+        
+                            <div class="container">
+                                <button type="button" onclick="eosDOWN()">-</button>
+                                <button type="button" onclick="eosUP()">+</button>
+                            </div>
+        
+                            <div>
+                                <p id="eosinophil"></p>
+                            </div>
+                        </div>
+
+                        <div class="BASOPHIL">
+                            <div>
+                                <b>Basophils</b><br>
+                            </div>
+    
+                            <div class="container">
+                                <button type="button" onclick="basoDOWN()">-</button>
+                                <button type="button" onclick="basoUP()">+</button>
+                            </div>
+    
+                            <div>
+                                <p id="basophil"></p>
+                            </div>
+                        </div>
+        
+                        <div class="PLASMACELL">
+                            <div>
+                                <b>Plasma Cells</b><br>
+                            </div>
+        
+                            <div class="container">
+                                <button type="button" onclick="plasmaDOWN()">-</button>
+                                <button type="button" onclick="plasmaUP()">+</button>
+                            </div>
+        
+                            <div>
+                                <p id="plasmacell"></p>
+                            </div>
+                        </div>
+
+                        <div class="NRBC">
+                            <div>
+                                <b>Nucleated RBCs</b><br>
+                            </div>
+    
+                            <div class="container">
+                                <button type="button" onclick="nrbcDOWN()">-</button>
+                                <button type="button" onclick="nrbcUP()">+</button>
+                            </div>
+    
+                            <div>
+                                <p id="nrbc"></p>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+        </div>
+
+        <div class="output">
+            <div class="container ouput-section">
+                <div>
+                    <input id="copy_btn" type="button" value="Copy table" onclick="selectElementContents( document.getElementById('outputTableDiv') );">
+                </div>
+                <br />
+                <div class="container outs">
+                    <div id="outputTableDiv">
+                        A <span id="totalP"></span>-cell differential count shows: <br />
+                    Blasts: &emsp14;&emsp14;<span id="blastP"></span>%<br />
+                    Promyelocytes: &emsp14;&emsp14;<span id="promyelocyteP"></span>%<br />
+                    Myelocytes: &emsp14;&emsp14;<span id="myelocyteP"></span>%<br />
+                    Metamyelocytes: &emsp14;&emsp14;<span id="metamyelocyteP"></span>%<br />
+                    Bands/Neutrophils: &emsp14;&emsp14;<span id="neutrophilP"></span>%<br />
+                    Eosinophils and precursors: &emsp14;<span id="eosinophilP"></span>%<br />
+                    Basophils and precursors: &emsp14;<span id="basophilP"></span>%<br />
+                    Monocytes:  &emsp14;&emsp14;<span id="monocyteP"></span>%<br />
+                    Erythroids and precursors: &emsp14;<span id="nrbcP"></span>%<br />
+                    Lymphocytes: &emsp14;&emsp14;<span id="lymphocyteP"></span>%<br />
+                    Plasma cells: &emsp13;&emsp14;<span id="plasmacellP"></span>%<br />
+                    <br />
+                    &emsp14;&emsp14;&emsp14;&emsp14;<span id="MERatio"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script src="counterScript.js">
+    </script>
+
+    </body>
+
+</html>

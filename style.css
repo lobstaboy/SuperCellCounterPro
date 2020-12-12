@@ -1,0 +1,165 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: green;
+}
+
+html {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.row {
+    justify-content: flex-start;
+}
+
+.input {
+    float: left;
+}
+
+.output {
+    float: left;
+    margin-left: 20px;
+}
+
+.output-cell-types {
+    float: left;
+}
+
+.output-percents {
+    float: right;
+}
+
+.cellTotes {
+    text-align: center;
+    margin-left: 40px;
+}
+
+.cellCountDropdown {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+td {
+    padding-right: 35px;
+}
+
+.resetPage {
+    margin-left: 50px;
+}
+
+.counter-section {
+    margin: 10px;
+}
+
+.BLAST {
+    text-align: center;
+    margin-left: 20px;
+}
+
+.Blast button{
+    width: 40px;
+    height: 40px;
+}
+
+.Promyelocyte button {
+    width: 40px;
+    height: 40px;
+}
+.PROMYELOCYTE {
+    text-align: center;
+    margin-left: 20px;
+}
+
+.Myelocyte button {
+    width: 40px;
+    height: 40px;
+}
+
+.MYELOCYTE {
+    text-align: center;
+    margin-left: 20px;
+}
+
+.Metamyelocyte button {
+    width: 40px;
+    height: 40px;
+}
+.METAMYELOCYTE {
+    text-align: center;
+    margin-left: 20px;
+}
+
+.Neutrophil button {
+    width: 40px;
+    height: 40px;
+}
+
+.NEUTROPHIL {
+    text-align: center;
+}
+
+.Nrbc button {
+    width: 40px;
+    height: 40px;
+}
+
+.NRBC {
+    text-align: center;
+    margin-left: 20px;
+}
+
+.Lymphocyte button {
+    width: 40px;
+    height: 40px;
+}
+
+.LYMPHOCYTE {
+    text-align: center;
+    margin-left: 20px;
+}
+
+.Basophil button {
+    width: 40px;
+    height: 40px;
+}
+
+.BASOPHIL {
+    text-align: center;
+    margin-left: 20px;
+}
+
+.Monocyte button {
+    width: 40px;
+    height: 40px;
+}
+
+.MONOCYTE {
+    text-align: center;
+    margin-left: 80px;
+}
+
+.Eosinophil button {
+    width: 40px;
+    height: 40px;
+}
+
+.EOSINOPHIL {
+    text-align: center;
+    margin-left: 20px;
+}
+
+.Plasmacell button {
+    width: 40px;
+    height: 40px;
+}
+
+.PLASMACELL {
+    text-align: center;
+    margin-left: 20px;
+}
+
+table tr.separator { height: 20px; }
