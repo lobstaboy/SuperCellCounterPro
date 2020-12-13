@@ -1,3 +1,4 @@
+
 var blast, myelocyte, metamyelocyte, promyelocyte;
 var neutrophil, nrbc, lymphocyte, basophil;
 var monocyte, eosinophil, plasmacell;
@@ -17,8 +18,10 @@ plasmacell = 0;
 myeloid = (blast + promyelocyte + myelocyte + metamyelocyte + neutrophil + basophil + eosinophil + monocyte);
 total = (blast + promyelocyte + myelocyte + metamyelocyte + neutrophil + nrbc + lymphocyte + basophil + monocyte + eosinophil + plasmacell);
 
-var numberToCount = document.getElementById("numCells").value;
-var numberToCount = document.getElementById("countType").value;
+function beep() {
+    var snd = new Audio("data:audio/wav;base64,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qJrx4KOQjahZxWbcZgztj2c49nKmkId44S71j0c8eV9yDK6uPRzx5X18eDvjvQ6yKo9ZSS6l//8elePK/Lf//IInrOF/FvDoADYAGBMGb7FtErm5MXMlmPAJQVgWta7Zx2go+8xJ0UiCb8LHHdftWyLJE0QIAIsI+UbXu67dZMjmgDGCGl1H+vpF4NSDckSIkk7Vd+sxEhBQMRU8j/12UIRhzSaUdQ+rQU5kGeFxm+hb1oh6pWWmv3uvmReDl0UnvtapVaIzo1jZbf/pD6ElLqSX+rUmOQNpJFa/r+sa4e/pBlAABoAAAAA3CUgShLdGIxsY7AUABPRrgCABdDuQ5GC7DqPQCgbbJUAoRSUj+NIEig0YfyWUho1VBBBA//uQZB4ABZx5zfMakeAAAAmwAAAAF5F3P0w9GtAAACfAAAAAwLhMDmAYWMgVEG1U0FIGCBgXBXAtfMH10000EEEEEECUBYln03TTTdNBDZopopYvrTTdNa325mImNg3TTPV9q3pmY0xoO6bv3r00y+IDGid/9aaaZTGMuj9mpu9Mpio1dXrr5HERTZSmqU36A3CumzN/9Robv/Xx4v9ijkSRSNLQhAWumap82WRSBUqXStV/YcS+XVLnSS+WLDroqArFkMEsAS+eWmrUzrO0oEmE40RlMZ5+ODIkAyKAGUwZ3mVKmcamcJnMW26MRPgUw6j+LkhyHGVGYjSUUKNpuJUQoOIAyDvEyG8S5yfK6dhZc0Tx1KI/gviKL6qvvFs1+bWtaz58uUNnryq6kt5RzOCkPWlVqVX2a/EEBUdU1KrXLf40GoiiFXK///qpoiDXrOgqDR38JB0bw7SoL+ZB9o1RCkQjQ2CBYZKd/+VJxZRRZlqSkKiws0WFxUyCwsKiMy7hUVFhIaCrNQsKkTIsLivwKKigsj8XYlwt/WKi2N4d//uQRCSAAjURNIHpMZBGYiaQPSYyAAABLAAAAAAAACWAAAAApUF/Mg+0aohSIRobBAsMlO//Kk4soosy1JSFRYWaLC4qZBYWFRGZdwqKiwkNBVmoWFSJkWFxX4FFRQWR+LsS4W/rFRb/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////VEFHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAU291bmRib3kuZGUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMjAwNGh0dHA6Ly93d3cuc291bmRib3kuZGUAAAAAAAAAACU=");  
+    snd.play();
+}
 
 function resetPage() {
     if (confirm("Are you sure you want to reset the counter?")) {
@@ -27,11 +30,11 @@ function resetPage() {
 }
 
 function updateTable() {
-    var numberToCount = document.getElementById("numCells").value;
+
     myeloid = (blast + promyelocyte + myelocyte + metamyelocyte + neutrophil + basophil + eosinophil + monocyte);
     total = (blast + promyelocyte + myelocyte + metamyelocyte + neutrophil + nrbc + lymphocyte + basophil + monocyte + eosinophil + plasmacell);
 
-    // Calculation of the blast percentages (P)
+    // Calculation of the percentages (P)
     blastP = ((blast/total)*100).toFixed(1);
     promyelocyteP = ((promyelocyte/total)*100).toFixed(1);
     myelocyteP = ((myelocyte/total)*100).toFixed(1);
@@ -114,9 +117,15 @@ function updateTable() {
         document.getElementById('plasmacellPB').innerHTML = plasmacellP + "% plasma cells, ";
     }
     
+    var numberToCount = document.getElementById("numCells").value;
+    if (total == numberToCount) {
+        // load the chime
+        beep();
+        setTimeout(function() {    
+            alert ("Congratulations! You counted "+numberToCount+" cells!");
+        },100)
+    }
 }
-
-updateTable();
 
 // function to copy the table
 function selectElementContents(el) {
@@ -153,77 +162,68 @@ function cellCountFunction(event) {
     if ((chCode == 55)||(chCode == 97)) {
         blast +=1
         total += 1
-        document.getElementById('blast').innerHTML = blast;
+        updateTable();
     }
 
     if ((chCode == 56)||(chCode == 115)) {
         promyelocyte +=1
         total += 1
-        document.getElementById('promyelocyte').innerHTML = promyelocyte;
+        updateTable();
     }
 
     if ((chCode == 57)||(chCode == 100)) {
         myelocyte +=1
         total += 1
-        document.getElementById('myelocyte').innerHTML = myelocyte;
+        updateTable();
     }
 
     if ((chCode == 54)||(chCode == 102)) {
         metamyelocyte +=1
         total += 1
-        document.getElementById('metamyelocyte').innerHTML = metamyelocyte;
+        updateTable();
     }
 
     if ((chCode == 51)||(chCode == 103)) {
         neutrophil +=1
         total += 1
-        document.getElementById('neutrophil').innerHTML = neutrophil;
+        updateTable();
     }
 
     if ((chCode == 45)||(chCode == 43)||(chCode == 114)) {
         nrbc +=1
         total += 1
-        document.getElementById('nrbc').innerHTML = nrbc;
+        updateTable();
     }
 
     if ((chCode == 53)||(chCode == 122)) {
         lymphocyte +=1
         total += 1
-        document.getElementById('lymphocyte').innerHTML = lymphocyte;
+        updateTable();
     }
 
     if ((chCode == 48)||(chCode == 99)) {
         basophil +=1
         total += 1
-        document.getElementById('basophil').innerHTML = basophil;
+        updateTable();
     }
 
     if ((chCode == 50)||(chCode == 118)) {
         monocyte +=1
         total += 1
-        document.getElementById('monocyte').innerHTML = monocyte;
+        updateTable();
     }
 
     if ((chCode == 49)||(chCode == 120)) {
         eosinophil +=1
         total += 1
-        document.getElementById('eosinophil').innerHTML = eosinophil;
+        updateTable();
     }
 
     if ((chCode == 52)||(chCode == 116)) {
         plasmacell +=1
         total += 1
-        document.getElementById('plasmacell').innerHTML = plasmacell;
+        updateTable();
     }
-
-    updateTable();
-
-    if (total == numberToCount) {
-        alert ("Congratulations! You counted "+numberToCount+" cells!");
-    }
-
-    return total;
-    
 }
 
 /*
@@ -233,12 +233,7 @@ function cellCountFunction(event) {
 function blastUP() {
     blast +=1
     total += 1
-    document.getElementById('blast').innerHTML = blast;
-    document.getElementById('numCellCounted').innerHTML = total;
     updateTable();
-    if (total == numberToCount) {
-        alert ("Congratulations! You counted "+numberToCount+" cells!");
-    }
 }
 
 function blastDOWN() {
@@ -248,20 +243,13 @@ function blastDOWN() {
 
     blast -=1
     total -= 1
-    document.getElementById('blast').innerHTML = blast;
-    document.getElementById('numCellCounted').innerHTML = total;
     updateTable();
 }
 
 function proUP() {
     promyelocyte +=1
     total += 1
-    document.getElementById('promyelocyte').innerHTML = promyelocyte;
-    document.getElementById('numCellCounted').innerHTML = total;
     updateTable();
-    if (total == numberToCount) {
-        alert ("Congratulations! You counted "+numberToCount+" cells!");
-    }
 }
 
 function proDOWN() {
@@ -271,20 +259,13 @@ function proDOWN() {
 
     promyelocyte -=1
     total -= 1
-    document.getElementById('promyelocyte').innerHTML = promyelocyte;
-    document.getElementById('numCellCounted').innerHTML = total;
-    updateTable();
+    updateTable()
 }
 
 function myeloUP() {
     myelocyte +=1
     total += 1
-    document.getElementById('myelocyte').innerHTML = myelocyte;
-    document.getElementById('numCellCounted').innerHTML = total;
-    updateTable();
-    if (total == numberToCount) {
-        alert ("Congratulations! You counted "+numberToCount+" cells!");
-    }
+    updateTable()
 }
 
 function myeloDOWN() {
@@ -294,18 +275,13 @@ function myeloDOWN() {
 
     myelocyte -=1
     total -= 1
-    document.getElementById('myelocyte').innerHTML = myelocyte;
-    document.getElementById('numCellCounted').innerHTML = total;
-    updateTable();
+    updateTable()
 }
 
 function metaUP() {
     metamyelocyte +=1
     total += 1
-    updateTable();
-    if (total == numberToCount) {
-        alert ("Congratulations! You counted "+numberToCount+" cells!");
-    }
+    updateTable()
 }
 
 function metaDOWN() {
@@ -315,20 +291,13 @@ function metaDOWN() {
 
     metamyelocyte -=1
     total -= 1
-    document.getElementById('metamyelocyte').innerHTML = metamyelocyte;
-    document.getElementById('numCellCounted').innerHTML = total;
-    updateTable();
+    updateTable()
 }
 
 function neutUP() {
     neutrophil +=1
     total += 1
-    document.getElementById('neutrophil').innerHTML = neutrophil;
-    document.getElementById('numCellCounted').innerHTML = total;
-    updateTable();
-    if (total == numberToCount) {
-        alert ("Congratulations! You counted "+numberToCount+" cells!");
-    }
+    updateTable()
 }
 
 function neutDOWN() {
@@ -338,20 +307,13 @@ function neutDOWN() {
 
     neutrophil -=1
     total -= 1
-    document.getElementById('neutrophil').innerHTML = neutrophil;
-    document.getElementById('numCellCounted').innerHTML = total;
-    updateTable();
+    updateTable()
 }
 
 function nrbcUP() {
     nrbc +=1
     total += 1
-    document.getElementById('nrbc').innerHTML = nrbc;
-    document.getElementById('numCellCounted').innerHTML = total;
-    updateTable();
-    if (total == numberToCount) {
-        alert ("Congratulations! You counted "+numberToCount+" cells!");
-    }
+    updateTable()
 }
 
 function nrbcDOWN() {
@@ -361,20 +323,13 @@ function nrbcDOWN() {
 
     nrbc -=1
     total -= 1
-    document.getElementById('nrbc').innerHTML = nrbc;
-    document.getElementById('numCellCounted').innerHTML = total;
-    updateTable();
+    updateTable()
 }
 
 function lymphUP() {
     lymphocyte +=1
     total += 1
-    document.getElementById('lymphocyte').innerHTML = lymphocyte;
-    document.getElementById('numCellCounted').innerHTML = total;
-    updateTable();
-    if (total == numberToCount) {
-        alert ("Congratulations! You counted "+numberToCount+" cells!");
-    }
+    updateTable()
 }
 
 function lymphDOWN() {
@@ -384,20 +339,13 @@ function lymphDOWN() {
 
     lymphocyte -=1
     total -= 1
-    document.getElementById('lymphocyte').innerHTML = lymphocyte;
-    document.getElementById('numCellCounted').innerHTML = total;
-    updateTable();
+    updateTable()
 }
 
 function basoUP() {
     basophil +=1
     total += 1
-    document.getElementById('basophil').innerHTML = basophil;
-    document.getElementById('numCellCounted').innerHTML = total;
-    updateTable();
-    if (total == numberToCount) {
-        alert ("Congratulations! You counted "+numberToCount+" cells!");
-    }
+    updateTable()
 }
 
 function basoDOWN() {
@@ -407,20 +355,13 @@ function basoDOWN() {
 
     basophil -=1
     total -= 1
-    document.getElementById('basophil').innerHTML = basophil;
-    document.getElementById('numCellCounted').innerHTML = total;
-    updateTable();
+    updateTable()
 }
 
 function monoUP() {
     monocyte +=1
     total += 1
-    document.getElementById('monocyte').innerHTML = monocyte;
-    document.getElementById('numCellCounted').innerHTML = total;
-    updateTable();
-    if (total == numberToCount) {
-        alert ("Congratulations! You counted "+numberToCount+" cells!");
-    }
+    updateTable()
 }
 
 function monoDOWN() {
@@ -430,20 +371,13 @@ function monoDOWN() {
 
     monocyte -=1
     total -= 1
-    document.getElementById('monocyte').innerHTML = monocyte;
-    document.getElementById('numCellCounted').innerHTML = total;
     updateTable();
 }
 
 function eosUP() {
     eosinophil +=1
     total += 1
-    document.getElementById('eosinophil').innerHTML = eosinophil;
-    document.getElementById('numCellCounted').innerHTML = total;
-    updateTable();
-    if (total == numberToCount) {
-        alert ("Congratulations! You counted "+numberToCount+" cells!");
-    }
+    updateTable()
 }
 
 function eosDOWN() {
@@ -453,20 +387,13 @@ function eosDOWN() {
 
     eosinophil -=1
     total -= 1
-    document.getElementById('eosinophil').innerHTML = eosinophil;
-    document.getElementById('numCellCounted').innerHTML = total;
-    updateTable();
+    updateTable()
 }
 
 function plasmaUP() {
     plasmacell +=1
     total += 1
-    document.getElementById('plasmacell').innerHTML = plasmacell;
-    document.getElementById('numCellCounted').innerHTML = total;
-    updateTable();
-    if (total == numberToCount) {
-        alert ("Congratulations! You counted "+numberToCount+" cells!");
-    }
+    updateTable()
 }
 
 function plasmaDOWN() {
@@ -476,7 +403,5 @@ function plasmaDOWN() {
 
     plasmacell -=1
     total -= 1
-    document.getElementById('plasmacell').innerHTML = plasmacell;
-    document.getElementById('numCellCounted').innerHTML = total;
-    updateTable();
+    updateTable()
 }
