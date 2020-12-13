@@ -4,7 +4,7 @@
 }
 
 h1 {
-    color: green;
+    color: red;
 }
 
 html {
@@ -17,14 +17,39 @@ div.row {
     text-align: left;
 }
 
-
 .input {
     float: left;
 }
 
 .output {
-    float: left;
-    margin-left: 20px;
+    width:375px; /* or whatever width you want. */
+    max-width:375px; /* or whatever width you want. */
+    display: inline-block;
+    margin-left: 30px;
+ }
+
+div.outputTableDivClass {
+    outline: 4px solid gold;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+input.BMButton {
+    outline: 2px solid gold;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+div.outputPBClass {
+    outline: 4px solid green;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+input.pbButton {
+    outline: 2px solid green;
+    padding: 5px;
+    margin-top: 3px;
 }
 
 .cellTotes {
@@ -36,7 +61,6 @@ div.row {
     margin-left: 20px;
     margin-right: 20px;
 }
-
 
 .resetPage {
     margin-left: 50px;

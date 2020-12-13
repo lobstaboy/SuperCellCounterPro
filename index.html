@@ -1,16 +1,15 @@
-<html>
+<html onkeypress="cellCountFunction(event)">
     <head>
     <title>Super Cell Counter Pro</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">    
     </head>
 
-    <body onkeypress="cellCountFunction(event)">
+    <body onload="initialFunction()">
         <h1>Super Cell Counter Pro 2000</h1>
-        <p>Version: 3.0 by Robbie Dietz MD, <a href=mailto:rldietzmd@gmail.com?subject="HTML link">rldietzmd@gmail.com</a></p>
-        <p><a href=https://s3-us-west-1.amazonaws.com/supercellcounterpro.com/keyboard.jpg="HTML link">Keyboard setup</a></p>
+        <p>Version: 3.0 by Robbie Dietz MD, <a href=mailto:rldietzmd@gmail.com?subject="HTML link">rldietzmd@gmail.com</a>, in loving memory of Dr. Maryam Sayah</p>
+        <p><a href=https://s3-us-west-1.amazonaws.com/supercellcounterpro.com/keyboard.jpg="HTML link">Keyboard setup</a>&emsp14;&emsp14;&emsp14;&emsp14; <a href="https://apod.nasa.gov/apod/astropix.html" target="_blank">3-minute adventure</a></p>
         
-
         <div class="input">
             <div class="container input-section">
                 <div class="row">
@@ -26,10 +25,10 @@
                         </form>
                     </div>
                     <div class="cellTotes">Number of cells counted:
-                        <p id="numCellCounted"></p>
+                        <p id="numCellCounted">0</p>
                     </div>
                     <div class="resetPage">
-                        <button type="button" onClick="resetPage()" >Reset</button>
+                        <button type="button" onClick="resetPage()">Reset</button>
                     </div>
                 </div>
             </div>
@@ -49,7 +48,7 @@
                         </div>
 
                         <div>
-                            <p id="blast"></p>
+                            <p id="blast">0</p>
                         </div>
                     </div>
 
@@ -63,7 +62,7 @@
                             <button type="button" onclick="proUP()">+</button>
                         </div>
                         <div>
-                            <p id="promyelocyte"></p>
+                            <p id="promyelocyte">0</p>
                         </div>
                     </div>
 
@@ -78,7 +77,7 @@
                         </div>
 
                         <div>
-                            <p id="myelocyte"></p>
+                            <p id="myelocyte">0</p>
                         </div>
                     </div>
 
@@ -94,7 +93,7 @@
                         </div>
 
                         <div>
-                            <p id="metamyelocyte"></p>
+                            <p id="metamyelocyte">0</p>
                         </div>
                     </div>
                 </div>
@@ -113,7 +112,7 @@
                         </div>
 
                         <div>
-                            <p id="neutrophil"></p>
+                            <p id="neutrophil">0</p>
                         </div>
                     </div>
 
@@ -128,7 +127,7 @@
                         </div>
 
                         <div>
-                            <p id="lymphocyte"></p>
+                            <p id="lymphocyte">0</p>
                         </div>
                     </div> <br />
 
@@ -143,7 +142,7 @@
                         </div>
     
                         <div>
-                            <p id="monocyte"></p>
+                            <p id="monocyte">0</p>
                         </div>
                     </div>
 
@@ -161,7 +160,7 @@
                         </div>
     
                         <div>
-                            <p id="eosinophil"></p>
+                            <p id="eosinophil">0</p>
                         </div>
                     </div>
                 </div>
@@ -179,7 +178,7 @@
                             </div>
     
                             <div>
-                                <p id="basophil"></p>
+                                <p id="basophil">0</p>
                             </div>
                         </div>
                         
@@ -194,7 +193,7 @@
                                 <button type="button" onclick="plasmaUP()">+</button>
                             </div>
                             <div>
-                                <p id="plasmacell"></p>
+                                <p id="plasmacell">0</p>
                             </div>
                         </div>
 
@@ -209,7 +208,7 @@
                             </div>
     
                             <div>
-                                <p id="nrbc"></p>
+                                <p id="nrbc">0</p>
                             </div>
                         </div>
                     </div>
@@ -221,30 +220,43 @@
             <div class="container ouput-section"></div>
                 <div>
                     <div>
-                        <input id="copy_btn" type="button" value="Copy table" onclick="selectElementContents( document.getElementById('outputTableDiv') );">
+                        <input id="copy_btn" type="button" class="bmButton" value="Copy BM table" onclick="selectElementContents( document.getElementById('outputTableDiv') );">
                         &emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;
-                        <input type="radio" name="countType" value="marrow" checked='checked' /> BM
-                        &emsp14;&emsp14;&emsp14;&emsp14;
-                        <input type="radio" name="countType" value="blood"/> PB
+                        <input id="copy_btn" type="button" class="pbButton" value="Copy PB results" onclick="selectElementContents( document.getElementById('outputPB') );">
                     </div>
-
                 </div>
                 <br />
-                <div id="outputTableDiv">
-                    A <span id="totalP"></span>-cell differential count shows: <br />
-                Blasts: &emsp14;&emsp14;<span id="blastP"></span>%<br />
-                Promyelocytes: &emsp14;&emsp14;<span id="promyelocyteP"></span>%<br />
-                Myelocytes: &emsp14;&emsp14;<span id="myelocyteP"></span>%<br />
-                Metamyelocytes: &emsp14;&emsp14;<span id="metamyelocyteP"></span>%<br />
-                Bands/Neutrophils: &emsp14;&emsp14;<span id="neutrophilP"></span>%<br />
-                Eosinophils and precursors: &emsp14;<span id="eosinophilP"></span>%<br />
-                Basophils and precursors: &emsp14;<span id="basophilP"></span>%<br />
-                Monocytes:  &emsp14;&emsp14;<span id="monocyteP"></span>%<br />
-                Erythroids and precursors: &emsp14;<span id="nrbcP"></span>%<br />
-                Lymphocytes: &emsp14;&emsp14;<span id="lymphocyteP"></span>%<br />
-                Plasma cells: &emsp13;&emsp14;<span id="plasmacellP"></span>%<br />
+
+                <div id="outputTableDiv" class="outputTableDivClass">
+                    A <span id="totalP">0</span>-cell differential count shows: <br />
+                    Blasts: &emsp14;&emsp14;<span id="blastP">0</span>%<br />
+                    Promyelocytes: &emsp14;&emsp14;<span id="promyelocyteP">0</span>%<br />
+                    Myelocytes: &emsp14;&emsp14;<span id="myelocyteP">0</span>%<br />
+                    Metamyelocytes: &emsp14;&emsp14;<span id="metamyelocyteP">0</span>%<br />
+                    Bands/Neutrophils: &emsp14;&emsp14;<span id="neutrophilP">0</span>%<br />
+                    Eosinophils and precursors: &emsp14;<span id="eosinophilP">0</span>%<br />
+                    Basophils and precursors: &emsp14;<span id="basophilP">0</span>%<br />
+                    Monocytes:  &emsp14;&emsp14;<span id="monocyteP">0</span>%<br />
+                    Erythroids and precursors: &emsp14;<span id="nrbcP">0</span>%<br />
+                    Lymphocytes: &emsp14;&emsp14;<span id="lymphocyteP">0</span>%<br />
+                    Plasma cells: &emsp13;&emsp14;<span id="plasmacellP">0</span>%<br />
+                    <br />
+                    &emsp14;&emsp14;&emsp14;&emsp14;M/E Ratio:  <span id="MERatio"></span>
                 <br />
-                &emsp14;&emsp14;&emsp14;&emsp14;<span id="MERatio"></span>
+                </div>
+
+                <div id="outputPB" class="outputPBClass">
+                    A <span id="totalPB">0</span>-cell differential count shows:
+                        <span id="blastA"></span>   
+                        <span id="promyelocytePB"></span>
+                        <span id="myelocytePB"></span>   
+                        <span id="metamyelocytePB"></span>
+                        <span id="plasmacellPB"></span>
+                        <span id="neutrophilPB">0</span>% neutrophils,   
+                        <span id="lymphocytePB">0</span>% lymphocytes,
+                        <span id="monocytePB">0</span>% monocytes, 
+                        <span id="eosinophilPB">0</span>% eosinophils,
+                        <span id="basophilPB">0</span>% basophils
                 </div>
             </div>
         </div>

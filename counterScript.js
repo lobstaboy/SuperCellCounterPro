@@ -14,8 +14,8 @@ basophil = 0;
 monocyte = 0;
 eosinophil = 0;
 plasmacell = 0;
-myeloid = blast + promyelocyte + myelocyte + metamyelocyte + neutrophil + basophil + eosinophil + monocyte;
-total = blast + promyelocyte + myelocyte + metamyelocyte + neutrophil + nrbc + lymphocyte + basophil + monocyte + eosinophil + plasmacell;
+myeloid = (blast + promyelocyte + myelocyte + metamyelocyte + neutrophil + basophil + eosinophil + monocyte);
+total = (blast + promyelocyte + myelocyte + metamyelocyte + neutrophil + nrbc + lymphocyte + basophil + monocyte + eosinophil + plasmacell);
 
 var numberToCount = document.getElementById("numCells").value;
 var numberToCount = document.getElementById("countType").value;
@@ -28,8 +28,10 @@ function resetPage() {
 
 function updateTable() {
     var numberToCount = document.getElementById("numCells").value;
-    total = blast + promyelocyte + myelocyte + metamyelocyte + neutrophil + nrbc + lymphocyte + basophil + monocyte + eosinophil + plasmacell;
+    myeloid = (blast + promyelocyte + myelocyte + metamyelocyte + neutrophil + basophil + eosinophil + monocyte);
+    total = (blast + promyelocyte + myelocyte + metamyelocyte + neutrophil + nrbc + lymphocyte + basophil + monocyte + eosinophil + plasmacell);
 
+    // Calculation of the blast percentages (P)
     blastP = ((blast/total)*100).toFixed(1);
     promyelocyteP = ((promyelocyte/total)*100).toFixed(1);
     myelocyteP = ((myelocyte/total)*100).toFixed(1);
@@ -42,99 +44,79 @@ function updateTable() {
     eosinophilP = ((eosinophil/total)*100).toFixed(1);
     plasmacellP = ((plasmacell/total)*100).toFixed(1);
 
-    if (total == 0) {
-        // start up the counter values
-        document.getElementById('totalP').innerHTML = 0;
-        document.getElementById('numCellCounted').innerHTML = 0;
+    document.getElementById('numCellCounted').innerHTML = total;
+    document.getElementById('totalP').innerHTML = total;
+    document.getElementById('totalPB').innerHTML = total;
 
-        document.getElementById('blast').innerHTML = 0;
-        document.getElementById('blastP').innerHTML = 0;
+    document.getElementById('blastP').innerHTML = blastP;
+    document.getElementById('blast').innerHTML = blast;
 
-        document.getElementById('promyelocyteP').innerHTML = 0;
-        document.getElementById('promyelocyte').innerHTML = 0;
+    document.getElementById('promyelocyteP').innerHTML = promyelocyteP;
+    document.getElementById('promyelocyte').innerHTML = promyelocyte;
 
-        document.getElementById('myelocyte').innerHTML = 0;
-        document.getElementById('myelocyteP').innerHTML = 0;
+    document.getElementById('myelocyteP').innerHTML = myelocyteP;
+    document.getElementById('myelocyte').innerHTML = myelocyte;
 
-        document.getElementById('metamyelocyte').innerHTML = 0;
-        document.getElementById('metamyelocyteP').innerHTML = 0;
+    document.getElementById('metamyelocyteP').innerHTML = metamyelocyteP;
+    document.getElementById('metamyelocyte').innerHTML = metamyelocyte;
+    
+    document.getElementById('neutrophilP').innerHTML = neutrophilP;
+    document.getElementById('neutrophilPB').innerHTML = neutrophilP;
+    document.getElementById('neutrophil').innerHTML = neutrophil;
 
-        document.getElementById('neutrophilP').innerHTML = 0;
-        document.getElementById('neutrophil').innerHTML = 0;
+    document.getElementById('nrbcP').innerHTML = nrbcP;
+    document.getElementById('nrbc').innerHTML = nrbc;
+    
+    document.getElementById('lymphocyteP').innerHTML = lymphocyteP;
+    document.getElementById('lymphocytePB').innerHTML = lymphocyteP;
+    document.getElementById('lymphocyte').innerHTML = lymphocyte;
 
-        document.getElementById('nrbcP').innerHTML = 0;
-        document.getElementById('nrbc').innerHTML = 0;
-        
-        document.getElementById('lymphocyteP').innerHTML = 0;
-        document.getElementById('lymphocyte').innerHTML = 0;
+    document.getElementById('basophilP').innerHTML = basophilP;
+    document.getElementById('basophilPB').innerHTML = basophilP;
+    document.getElementById('basophil').innerHTML = basophil;
+    
+    document.getElementById('monocyteP').innerHTML = monocyteP;
+    document.getElementById('monocytePB').innerHTML = monocyteP;
+    document.getElementById('monocyte').innerHTML = monocyte;        
+    
+    document.getElementById('eosinophilP').innerHTML = eosinophilP;
+    document.getElementById('eosinophilPB').innerHTML = eosinophilP;
+    document.getElementById('eosinophil').innerHTML = eosinophil;
 
-        document.getElementById('basophilP').innerHTML = 0;
-        document.getElementById('basophil').innerHTML = 0;
-        
-        document.getElementById('monocyteP').innerHTML = 0;
-        document.getElementById('monocyte').innerHTML = 0;        
-        
-        document.getElementById('eosinophilP').innerHTML = 0;
-        document.getElementById('eosinophil').innerHTML = 0;
+    document.getElementById('plasmacellP').innerHTML = plasmacellP;
+    document.getElementById('plasmacell').innerHTML = plasmacell;
 
-        document.getElementById('plasmacellP').innerHTML = 0;
-        document.getElementById('plasmacell').innerHTML = 0;
-
-        document.getElementById('MERatio').innerHTML = "M/E Ratio:  ";
-
+    if (((myeloid==0) && (nrbc!=0)) || ((myeloid/nrbc)<0.1)) {
+        document.getElementById('MERatio').innerHTML = "  <0.1:1";
+    } else if (((myeloid!=0) && (nrbc==0)) || ((myeloid/nrbc)>15)) {
+        document.getElementById('MERatio').innerHTML = "  >15:1";
     } else {
-
-        document.getElementById('numCellCounted').innerHTML = total;
-        document.getElementById('totalP').innerHTML = total;
-
-        document.getElementById('blastP').innerHTML = blastP;
-        document.getElementById('blast').innerHTML = blast;
-
-        document.getElementById('promyelocyteP').innerHTML = promyelocyteP;
-        document.getElementById('promyelocyte').innerHTML = promyelocyte;
-
-        document.getElementById('myelocyteP').innerHTML = myelocyteP;
-        document.getElementById('myelocyte').innerHTML = myelocyte;
-
-        document.getElementById('metamyelocyteP').innerHTML = metamyelocyteP;
-        document.getElementById('metamyelocyte').innerHTML = metamyelocyte;
-        
-        document.getElementById('neutrophilP').innerHTML = neutrophilP;
-        document.getElementById('neutrophil').innerHTML = neutrophil;
-
-        document.getElementById('nrbcP').innerHTML = nrbcP;
-        document.getElementById('nrbc').innerHTML = nrbc;
-        
-        document.getElementById('lymphocyteP').innerHTML = lymphocyteP;
-        document.getElementById('lymphocyte').innerHTML = lymphocyte;
-
-        document.getElementById('basophilP').innerHTML = basophilP;
-        document.getElementById('basophil').innerHTML = basophil;
-        
-        document.getElementById('monocyteP').innerHTML = monocyteP;
-        document.getElementById('monocyte').innerHTML = monocyte;        
-        
-        document.getElementById('eosinophilP').innerHTML = eosinophilP;
-        document.getElementById('eosinophil').innerHTML = eosinophil;
-
-        document.getElementById('plasmacellP').innerHTML = plasmacellP;
-        document.getElementById('plasmacell').innerHTML = plasmacell;
-
-        myeloid = blast + myelocyte + metamyelocyte + promyelocyte + neutrophil + basophil + eosinophil + monocyte;
-
-        if (((myeloid==0) && (nrbc!=0)) || ((myeloid/nrbc)<0.1)) {
-            document.getElementById('MERatio').innerHTML = "M/E Ratio:  <0.1:1";
-        } else if (((myeloid!=0) && (nrbc==0)) || ((myeloid/nrbc)>15)) {
-            document.getElementById('MERatio').innerHTML = "M/E Ratio:  >15:1";
-        } else {
-            document.getElementById('MERatio').innerHTML = "M/E Ratio:    "+((myeloid/nrbc)).toFixed(1)+":1";
-        }
+        document.getElementById('MERatio').innerHTML = "  "+((myeloid/nrbc)).toFixed(1)+":1";
     }
+
+    if (blastP>0) {
+        document.getElementById('blastA').innerHTML = blastP + "% blasts, ";
+    }
+
+    if (promyelocyteP>0) {
+        document.getElementById('promyelocytePB').innerHTML = promyelocyteP + "% promyelocytes, ";
+    }
+
+    if (myelocyteP>0) {
+        document.getElementById('myelocytePB').innerHTML = myelocyteP + "% myelocytes, ";
+    }
+
+    if (metamyelocyteP>0) {
+        document.getElementById('metamyelocytePB').innerHTML = metamyelocyteP + "% metamyelocytes, ";
+    }
+
+    if (plasmacellP>0) {
+        document.getElementById('plasmacellPB').innerHTML = plasmacellP + "% plasma cells, ";
+    }
+    
 }
 
 updateTable();
-
-// function to copy the table
 
 // function to copy the table
 function selectElementContents(el) {
