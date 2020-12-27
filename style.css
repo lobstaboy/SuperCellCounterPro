@@ -28,7 +28,7 @@ input[type='checkbox'] {
     text-align: left;
 
     padding: 8px;
-    width: 40%;
+    width: 100px;
 
     color: #000000;
     background: #bbbbb5;
@@ -91,10 +91,13 @@ end of styling the collapsible
 
 div.collapsible-content {
     outline: 3px solid black;
-    width: 75%;
+    width: 900px;
     padding-left: 8px;
-
     margin-bottom: 10px;
+    /*
+    FFF8E7 is cosmic latte, the average color of the universe.
+    */
+    background-color: #FFF8E7; 
 }
 
 .siteInfo {
