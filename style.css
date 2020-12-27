@@ -93,7 +93,7 @@ end of styling the collapsible
 div.collapsible-content {
     outline: 2px solid black;
     width: 75%;
-    padding: 3px;
+    padding: 2px;
 
     margin-bottom: 10px;
 }
