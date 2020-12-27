@@ -90,9 +90,9 @@ end of styling the collapsible
 */
 
 div.collapsible-content {
-    outline: 2px solid black;
+    outline: 3px solid black;
     width: 75%;
-    padding: 2px;
+    padding-left: 8px;
 
     margin-bottom: 10px;
 }
