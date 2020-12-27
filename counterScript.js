@@ -1,4 +1,5 @@
 
+
 var blast, myelocyte, metamyelocyte, promyelocyte;
 var neutrophil, nrbc, lymphocyte, basophil;
 var monocyte, eosinophil, plasmacell;
@@ -35,17 +36,74 @@ function updateTable() {
     total = (blast + promyelocyte + myelocyte + metamyelocyte + neutrophil + nrbc + lymphocyte + basophil + monocyte + eosinophil + plasmacell);
 
     // Calculation of the percentages (P)
-    blastP = ((blast/total)*100).toFixed(1);
-    promyelocyteP = ((promyelocyte/total)*100).toFixed(1);
-    myelocyteP = ((myelocyte/total)*100).toFixed(1);
-    metamyelocyteP = ((metamyelocyte/total)*100).toFixed(1);
-    neutrophilP = ((neutrophil/total)*100).toFixed(1);
-    nrbcP = ((nrbc/total)*100).toFixed(1);
-    lymphocyteP = ((lymphocyte/total)*100).toFixed(1);
-    basophilP = ((basophil/total)*100).toFixed(1);
-    monocyteP = ((monocyte/total)*100).toFixed(1);
-    eosinophilP = ((eosinophil/total)*100).toFixed(1);
-    plasmacellP = ((plasmacell/total)*100).toFixed(1);
+    //
+    blastP = ((blast/total)*100);
+    // if there is a decimal, show it, otherwise not
+    if ((blastP%1)==0) {
+        blastP = blastP.toFixed(0);
+    } else {
+        blastP = blastP.toFixed(1);
+    }
+    promyelocyteP = ((promyelocyte/total)*100);
+    if ((promyelocyteP%1)==0) {
+        promyelocyteP = promyelocyteP.toFixed(0);
+    } else {
+        promyelocyteP = promyelocyteP.toFixed(1);
+    }
+    myelocyteP = ((myelocyte/total)*100);
+    if ((myelocyteP%1)==0) {
+        myelocyteP = myelocyteP.toFixed(0);
+    } else {
+        myelocyteP = myelocyteP.toFixed(1);
+    }
+    metamyelocyteP = ((metamyelocyte/total)*100);
+    if ((metamyelocyteP%1)==0) {
+        metamyelocyteP = metamyelocyteP.toFixed(0);
+    } else {
+        metamyelocyteP = metamyelocyteP.toFixed(1);
+    }
+    neutrophilP = ((neutrophil/total)*100);
+    if ((neutrophilP%1)==0) {
+        neutrophilP = neutrophilP.toFixed(0);
+    } else {
+        neutrophilP = neutrophilP.toFixed(1);
+    }
+    nrbcP = ((nrbc/total)*100);
+    if ((nrbcP%1)==0) {
+        nrbcP = nrbcP.toFixed(0);
+    } else {
+        nrbcP = nrbcP.toFixed(1);
+    }
+    lymphocyteP = ((lymphocyte/total)*100);
+    if ((lymphocyteP%1)==0) {
+        lymphocyteP = lymphocyteP.toFixed(0);
+    } else {
+        lymphocyteP = lymphocyteP.toFixed(1);
+    }
+    basophilP = ((basophil/total)*100);
+    if ((basophilP%1)==0) {
+        basophilP = basophilP.toFixed(0);
+    } else {
+        basophilP = basophilP.toFixed(1);
+    }
+    monocyteP = ((monocyte/total)*100);
+    if ((monocyteP%1)==0) {
+        monocyteP = monocyteP.toFixed(0);
+    } else {
+        monocyteP = monocyteP.toFixed(1);
+    }
+    eosinophilP = ((eosinophil/total)*100);
+    if ((eosinophilP%1)==0) {
+        eosinophilP = eosinophilP.toFixed(0);
+    } else {
+        eosinophilP = eosinophilP.toFixed(1);
+    }
+    plasmacellP = ((plasmacell/total)*100);
+    if ((plasmacellP%1)==0) {
+        plasmacellP = plasmacellP.toFixed(0);
+    } else {
+        plasmacellP = plasmacellP.toFixed(1);
+    }
 
     document.getElementById('numCellCounted').innerHTML = total;
     document.getElementById('totalP').innerHTML = total;
@@ -94,7 +152,12 @@ function updateTable() {
     } else if (((myeloid!=0) && (nrbc==0)) || ((myeloid/nrbc)>15)) {
         document.getElementById('MERatio').innerHTML = "  >15:1";
     } else {
-        document.getElementById('MERatio').innerHTML = "  "+((myeloid/nrbc)).toFixed(1)+":1";
+        if (((myeloid/nrbc)%1)==0) {
+            document.getElementById('MERatio').innerHTML = "  "+((myeloid/nrbc)).toFixed(0)+":1";
+        } else {
+            document.getElementById('MERatio').innerHTML = "  "+((myeloid/nrbc)).toFixed(1)+":1";
+        }
+        
     }
 
     if (blastP>0) {

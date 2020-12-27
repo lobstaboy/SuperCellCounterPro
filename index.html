@@ -8,9 +8,17 @@
     
     <body onkeypress="cellCountFunction(event)">
         <h1>Super Cell Counter Pro 2000</h1>
-        <p>Version: 3.0 by Robbie Dietz MD, <a href=mailto:rldietzmd@gmail.com?subject="HTML link">rldietzmd@gmail.com</a>, in loving memory of Maryam Sayah MD <br/>
-        Versions 1 and 2 by Gregory Fishbein MD. Also inspired by <a href="https://hematogones.com/heme-path/heme-diff#" target="_blank">Hematogones.com</a></p>
-        <p><a href="keyboard.html" target="_blank">Keyboard setup</a>&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14; <a href="https://apod.nasa.gov/apod/astropix.html" target="_blank">3-minute adventure</a>&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14; <a href="WikiCellChart.html" target="_blank">Cell chart</a></p>
+        <div class="wrap-collapsible">
+            <input id="collapsible" class="toggle" type="checkbox">
+            <label for="collapsible" class="lbl-toggle">Site Info</label>
+            <div class="collapsible-content">
+                <p>Version: 3.0 by Robbie Dietz MD, <a href=mailto:rldietzmd@gmail.com?subject="HTML link">rldietzmd@gmail.com</a>, in loving memory of Maryam Sayah MD <br/>
+                Versions 1 and 2 by Gregory Fishbein MD. Also inspired by <a href="https://hematogones.com/heme-path/heme-diff#" target="_blank">Hematogones.com</a><br/><br/>
+                <a style="color:green;">Table formatting tip:</a> to copy formatted BM table into Beaker, you must first copy the BM table from here to Word, then cutting and pasting THAT table from Word into the report.</p>
+                <p><a href="keyboard.html" target="_blank">Keyboard setup</a>&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14; <a href="https://apod.nasa.gov/apod/astropix.html" target="_blank">3-minute adventure</a>&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14;&emsp14; <a href="WikiCellChart.html" target="_blank">Cell chart</a></p>
+            </div>
+        </div>
+
         <div class="input">
             <div class="container input-section">
                 <div class="row">
@@ -230,17 +238,98 @@
 
                 <div id="outputTableDiv" class="outputTableDivClass">
                     A <span id="totalP">0</span>-cell differential count shows: <br />
-                    Blasts: &emsp14;&emsp14;<span id="blastP">0</span>%<br />
-                    Promyelocytes: &emsp14;&emsp14;<span id="promyelocyteP">0</span>%<br />
-                    Myelocytes: &emsp14;&emsp14;<span id="myelocyteP">0</span>%<br />
-                    Metamyelocytes: &emsp14;&emsp14;<span id="metamyelocyteP">0</span>%<br />
-                    Bands/Neutrophils: &emsp14;&emsp14;<span id="neutrophilP">0</span>%<br />
-                    Eosinophils and precursors: &emsp14;<span id="eosinophilP">0</span>%<br />
-                    Basophils and precursors: &emsp14;<span id="basophilP">0</span>%<br />
-                    Monocytes:  &emsp14;&emsp14;<span id="monocyteP">0</span>%<br />
-                    Erythroids and precursors: &emsp14;<span id="nrbcP">0</span>%<br />
-                    Lymphocytes: &emsp14;&emsp14;<span id="lymphocyteP">0</span>%<br />
-                    Plasma cells: &emsp13;&emsp14;<span id="plasmacellP">0</span>%<br />
+                    <table id="realTable">
+                        <tr>
+                            <td>
+                                Blasts: 
+                            </td>
+                            <td>
+                                <span id="blastP">0</span>%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Promyelocytes:
+                            </td>
+                            <td>
+                                <span id="promyelocyteP">0</span>%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Myelocytes:
+                            </td>
+                            <td>
+                                <span id="myelocyteP">0</span>%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Metamyelocytes:
+                            </td>
+                            <td>
+                                <span id="metamyelocyteP">0</span>%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Bands/Neutrophils: 
+                            </td>
+                            <td>
+                                <span id="neutrophilP">0</span>%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Eosinophils and precursors: 
+                            </td>
+                            <td>
+                                <span id="eosinophilP">0</span>%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Basophils and precursors: &emsp;
+                            </td>
+                            <td>
+                                <span id="basophilP">0</span>%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Monocytes:
+                            </td>
+                            <td>
+                                <span id="monocyteP">0</span>%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Erythroids and precursors:
+                            </td>
+                            <td>
+                                <span id="nrbcP">0</span>%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Lymphocytes:
+                            </td>
+                            <td>
+                                <span id="lymphocyteP">0</span>%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Plasma cells: 
+                            </td>
+                            <td>
+                                <span id="plasmacellP">0</span>%
+                            </td>
+                        </tr>
+
+                    </table>
+                    
                     <br />
                     &emsp14;&emsp14;&emsp14;&emsp14;M/E Ratio:  <span id="MERatio"></span>
                 <br />
@@ -256,15 +345,13 @@
                         <span id="neutrophilPB">0</span>% neutrophils,   
                         <span id="lymphocytePB">0</span>% lymphocytes,
                         <span id="monocytePB">0</span>% monocytes, 
-                        <span id="eosinophilPB">0</span>% eosinophils,
-                        <span id="basophilPB">0</span>% basophils
+                        <span id="eosinophilPB">0</span>% eosinophils, and 
+                        <span id="basophilPB">0</span>% basophils.
                 </div>
             </div>
         </div>
-
-    <script src="counterScript.js">
-    </script>
-
+    
+    <script src="counterScript.js"></script>
     </body>
 
 </html>
